@@ -90,14 +90,6 @@ fonts[1].onchange = () => {
     task4Para.style.fontSize = `${fonts[1].value}`;
 }
 
-// fontDecorations[0].onchange = () => {
-//     if(fontDecorations[0].checked) {
-//         console.log(fontDecorations[0].checked);
-//     }
-//     else {
-//         console.log(fontDecorations[0].checked);
-//     }
-// }
 
 for(let i = 0; i < fontDecorations.length; i++) {
     fontDecorations[i].onchange = () => {
