@@ -105,10 +105,17 @@ for(let i = 0; i < fontDecorations.length; i++) {
             }
         }
         else {
-            task4Para.style.fontStyle = "initial";
-            task4Para.style.fontWeight = "initial";
-            task4Para.style.textDecoration = "initial";
+            if(fontDecorations[i].id == "italic") {
+                task4Para.style.fontStyle = `initial`;
+            }
+            else if (fontDecorations[i].id == "bold") {
+                task4Para.style.fontWeight = `initial`;
+            }
+            else {
+                task4Para.style.textDecoration = `initial`;
+            }
         }
+
     } 
 }
 
