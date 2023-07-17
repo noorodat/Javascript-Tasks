@@ -1,0 +1,44 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+}
+
+hr {
+    margin-top: 30px;
+}
+
+.task {
+    padding: 20px;
+}
+
+.load-data {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.load-data:active {
+    transform: translateY(-2px);
+}
+
+.task table {
+    margin-top: 40px;
+}
+
+.task table thead {
+    background-color: #eee;
+}
+
+.task table thead th {
+    padding: 20px;
+}
+

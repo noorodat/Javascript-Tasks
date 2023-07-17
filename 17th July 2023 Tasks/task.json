@@ -1,0 +1,7 @@
+{
+    "names": ["Nooraldeen", "Yousuf", "Anfal", "Razan Rjoub", "Razan Mustafa", "Sawsan"],
+    "ages": [20, 23, 25, 21, 25, 25],
+    "majors": ["CS", "Electrical Engineering", "Software Engineering", "Software Engineering", "Computer Science", "Computer Science"],
+    "universities": ["JUST", "YU", "JUST", "JUST", "YU", "YU"],
+    "image" : "user.png"
+}

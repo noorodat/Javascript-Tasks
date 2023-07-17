@@ -13,15 +13,15 @@ let result;
 if(rate < 50) 
     result = "Fail";
 
-else if (rate >= 50 && rate <= 59) {
+else if (rate <= 59) {
     result = "E";
 }
 
-else if (rate >= 60 && rate <= 69) {
+else if (rate <= 69) {
     result = "D";
 }
 
-else if (rate >= 70 && rate <= 79) {
+else if (rate <= 79) {
     result = "C";
 }
 
