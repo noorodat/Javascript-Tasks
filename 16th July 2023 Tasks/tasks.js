@@ -10,160 +10,159 @@ bodyColor.onchange = () => {
 document.body.style.background = `${sessionStorage.getItem("bodyColor")}`;
 bodyColor.value = `${sessionStorage.getItem("bodyColor")}`;
 
+/* ####################################################################################### */
 
 /* Task2 */
 let cardsContaier = document.querySelector(".task2 .cards-container");
-
-function craeteCard(name, age, gender, birthDate, userImage, description, majorAndUni, proLanguages, siblingsNumber, siblingsDescription) {
-    // create the card
-    let card = document.createElement("div");
-    card.classList.add("card");
-    
-    //name
-    let personName = document.createElement("h2");
-    let personNameText = document.createTextNode(`${name}`);
-    personName.appendChild(personNameText);
-    card.appendChild(personName);
-
-    // age
-    let personAge = document.createElement("span");
-    let personAgeText = document.createTextNode(`${age}`);
-    personAge.appendChild(personAgeText);
-    card.appendChild(personAge);
-
-    // gender
-    let personGender = document.createElement("span");
-    let personGenderText = document.createTextNode(`${gender}`);
-    personGender.appendChild(personGenderText);
-    card.appendChild(personGender);
-
-    // birth date
-    let personBirthDate = document.createElement("span");
-    let personBirthDateText = document.createTextNode(`${birthDate}`);
-    personBirthDate.appendChild(personBirthDateText);
-    card.appendChild(personBirthDate);
-
-    // Image
-    let personImage = document.createElement('img');
-    personImage.src = `${userImage}`;
-    card.appendChild(personImage);
-
-    /* --------------------------------------- */
-
-    // descriptipn
-    let personDescription = document.createElement("p");
-    let personDescriptionText = document.createTextNode(`${description}`);
-    personDescription.appendChild(personDescriptionText);
-    card.appendChild(personDescription);
-
-    // major
-    let personMajor = document.createElement("span");
-    personMajor.textContent = `${majorAndUni}`;
-    card.appendChild(personMajor);
-    
-
-    // programming languagese
-    let personLanguges = document.createElement("ul");
-
-    for(let i = 0 ; i < proLanguages.length; i++) {
-        let personLangugesElements = document.createElement("li");
-
-        if(proLanguages[i].checked) {
-            personLangugesElements.textContent = `${proLanguages[i].value}`;
-            personLanguges.appendChild(personLangugesElements);
-            localStorage.setItem("languages", JSON.stringify(proLanguages[i].value));
-        }
-
-    }
-
-    card.appendChild(personLanguges);
-
-    // siblings number
-    let personSiblings = document.createElement("span");
-    personSiblings.textContent = `${siblingsNumber}`;
-    card.appendChild(personSiblings);
-
-    // siblings description
-    let personSiblingsDescription = document.createElement("p");
-    personSiblingsDescription.textContent = `${siblingsDescription}`;
-    card.appendChild(personSiblingsDescription);
-
-    cardsContaier.appendChild(card);
-
-
-    // (name, age, gender, birthDate, userImage, description, majorAndUni, proLanguages, siblingsNumber, siblingsDescription)
-    let names = JSON.parse(localStorage.getItem("names")) || [];
-    names.push(name);
-    localStorage.setItem("names", JSON.stringify(names));
-
-    let ages = JSON.parse(localStorage.getItem("ages")) || [];
-    ages.push(age);
-    localStorage.setItem("ages", JSON.stringify(ages));
-
-    let genders = JSON.parse(localStorage.getItem("genders")) || [];
-    genders.push(gender);
-    localStorage.setItem("genders", JSON.stringify(genders));
-
-    let dates = JSON.parse(localStorage.getItem("dates")) || [];
-    dates.push(birthDate);
-    localStorage.setItem("dates", JSON.stringify(dates));
-
-    let images = JSON.parse(localStorage.getItem("images")) || [];
-    images.push(userImage);
-    localStorage.setItem("images", JSON.stringify(images));
-    
-    let descs = JSON.parse(localStorage.getItem("descs")) || [];
-    descs.push(description);
-    localStorage.setItem("descs", JSON.stringify(descs));
-
-// -------------------
-
-
-
-
-// -------------------
-    let majors = JSON.parse(localStorage.getItem("majors")) || [];
-    majors.push(majorAndUni);
-    localStorage.setItem("majors", JSON.stringify(majors));
-
-    let sibNums = JSON.parse(localStorage.getItem("sibNums")) || [];
-    sibNums.push(siblingsNumber);
-    localStorage.setItem("sibNums", JSON.stringify(sibNums));
-
-    let sibDescs = JSON.parse(localStorage.getItem("sibDescs")) || [];
-    sibDescs.push(siblingsDescription);
-    localStorage.setItem("sibDescs", JSON.stringify(sibDescs));
-
-
-}
-
-
-
 let addCard = document.querySelector(".task2 button");
 
+// get inputs
+addCard.addEventListener('click', () => {
 
-addCard.addEventListener("click" , () => {
+    cardsContaier.innerHTML = "";
 
-    const person = {
-        name: document.querySelector(".task2 #name").value,
-        age: document.querySelector(".task2 #age").value,
-        gender: document.querySelector(".task2 #gender").value,
-        birthDate: document.querySelector(".task2 #bdate").value,
-        image: document.querySelector(".task2 #image").value,
-        description: document.querySelector(".task2 #description").value,
-        major: document.querySelector(".task2 #major").value,
-        programmingLanguages: document.querySelectorAll(".task2 .langs"),
-        siblingsNumber: document.querySelector(".task2 #sib-num").value,
-        siblingsDescription: document.querySelector(".task2 #sib-desc").value,
-    };
+    let memberName = document.querySelector(".task2 #name");
+    let memeberAge = document.querySelector(".task2 #age");
+    let memeberGender = document.querySelector(".task2 #gender");
+    let memeberBirthDate = document.querySelector(".task2 #bdate");
+    let memeberImage = document.querySelector(".task2 #image");
+    let memeberDesc = document.querySelector(".task2 #description");
+    let memeberEdu = document.querySelector(".task2 #major");
+    let memeberLanguages = document.querySelectorAll(".task2 .langs");
 
-    craeteCard(person.name, person.age, person.gender, person.birthDate, person.image, person.description, person.major, person.programmingLanguages, person.siblingsNumber, person.siblingsDescription);
-    
-    let forms = document.querySelectorAll(".task2 form");
-
-    for(let i = 0; i < forms.length; i++) {
-        forms[i].reset();
+    let langs = [];
+    for(let i = 0; i < memeberLanguages.length; i++) {
+        if(memeberLanguages[i].checked) {
+            langs.push(memeberLanguages[i].value);
+        }
     }
+
+    let siblingsNumber = document.querySelector(".task2 #sib-num");
+    let siblingsDesc = document.querySelector(".task2 #sib-desc");
+
+    cardsContaier.innerHTML = 
+    `
+        <div class="card">
+            <h2>${memberName.value}</h2>
+            <span>${memeberAge.value}</span>
+            <span>${memeberGender.value}</span>
+            <span>${memeberBirthDate.value}</span>
+            <img src="${memeberImage.value}">
+            <p>${memeberDesc.value}</p>
+            <span>${memeberEdu.value}</span>
+            <p>${langs.join(" ")}</p>
+            <span>${siblingsNumber.value}</span>
+            <p>${siblingsDesc.value}</p>
+        </div>
+    `;
+
+    // set into localstorage
+
+    localStorage.setItem("name", memberName.value);
+    localStorage.setItem("age", memeberAge.value);
+    localStorage.setItem("gender", memeberGender.value);
+    localStorage.setItem("birthdate", memeberBirthDate.value);
+    localStorage.setItem("image",memeberImage.value);
+    localStorage.setItem("description", memeberDesc.value);
+    localStorage.setItem("education", memeberEdu.value);
+    localStorage.setItem("languages", JSON.stringify(langs));
+    localStorage.setItem("sibNum", siblingsNumber.value);
+    localStorage.setItem("sibDesc", siblingsDesc.value);
+
 });
 
-localStorage.clear();
+cardsContaier.innerHTML = 
+`
+    <div class="card">
+        <h2>${localStorage.getItem("name")}</h2>
+        <span>${localStorage.getItem("age")}</span>
+        <span>${localStorage.getItem("gender")}</span>
+        <span>${localStorage.getItem("birthdate")}</span>
+        <img src="${localStorage.getItem("image")}">
+        <p>${localStorage.getItem("description")}</p>
+        <span>${localStorage.getItem("education")}</span>
+        <p>${JSON.parse(localStorage.getItem("languages")).join(" ")}</p>
+        <span>${localStorage.getItem("sibNum")}</span>
+        <p>${localStorage.getItem("sibDesc")}</p>
+    </div>
+`;
+
+/* ####################################################################################### */
+
+// Task 3
+
+// get all spans
+let errorMessage = document.querySelectorAll(".task3 form span");
+
+
+// First name validation
+let firstName = document.querySelector(".task3 #fName");
+let firstNameReg = /^[^0-9]*$/;
+firstName.onkeyup = () => {
+    if(!firstNameReg.test(firstName.value)) {
+        errorMessage[0].style.display = "inline";
+    }
+    else {
+        errorMessage[0].style.display = "none";
+    }
+}
+
+// Date validation
+let birthDate = document.querySelector(".task3 #date");
+let birthDateReg = /^(0[1-9]|1[0-9]|2[0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+
+birthDate.onkeyup = () => {
+    if(!birthDateReg.test(birthDate.value) && birthDate.value !== '') {
+        errorMessage[2].style.display = "inline";
+    }
+    else {
+        errorMessage[2].style.display = "none";
+    }
+}
+
+// Email validation
+let emails = document.querySelectorAll(".task3 .email");
+
+let emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+emails[0].onkeyup = () => {
+    if(!emailReg.test(emails[0].value) && emails[0].value !== '') {
+        errorMessage[3].style.display = "inline";
+    }
+    else {
+        errorMessage[3].style.display = "none";
+    }
+}
+
+emails[1].onkeyup = () => {
+    if(emails[0].value !== emails[1].value && emails[1].value !== '') {
+        errorMessage[4].style.display = "inline";
+    }
+    else {
+        errorMessage[4].style.display = "none";
+    }
+}
+
+// password validation
+
+let passwords = document.querySelectorAll(".task3 .password");
+let passwordReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+// at least 8 + num + Capital char
+
+passwords[0].onkeyup = () => {
+    if(!passwordReg.test(passwords[0].value) && passwords[0].value !== '') {
+        errorMessage[5].style.display = "inline";
+    }
+    else {
+        errorMessage[5].style.display = "none";
+    }
+}
+
+passwords[1].onkeyup = () => {
+    if(passwords[0].value !== passwords[1].value && passwords[1].value !== '') {
+        errorMessage[6].style.display = "inline";
+    }
+    else {
+        errorMessage[6].style.display = "none";
+    }
+}

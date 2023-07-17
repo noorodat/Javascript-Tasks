@@ -55,3 +55,12 @@ hr {
     width: 250px;
 }
 
+
+/* Task3 */
+
+.task3 form span{
+    color: red;
+    display: none;
+}
+
+
