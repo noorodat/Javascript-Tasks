@@ -3,14 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tasks.css">
     <title>Tasks</title>
 </head>
+
 <body>
 
     <div class="task1">
-        <input type="color">
+        <input type="color" class="body-color">
+    </div>
+
+    <hr>
+
+    <div class="task2">
+
+            <form action="" class="personal-info">
+                <div class="info">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name">
+                </div>
+    
+                <div class="info">    
+                    <label for="age">Age:</label>
+                    <input type="text" id="age">
+                </div>
+    
+                <div class="info">
+                    <label for="gender">Gender:</label>
+                    <input type="text" id="gender">
+                </div>
+    
+                <div class="info">
+                    <label for="bdate">Birth Date:</label>
+                    <input type="date" id="bdate">
+                </div>
+
+                <div class="info">
+                    <label for="image">Your image:</label>
+                    <input type="text" id="image">
+                </div>
+            </form>
+    
+            <hr style="height: 5px;">
+    
+            <form action="" class="education">
+                <div class="info">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description">
+                </div>
+    
+                <div class="info">
+                    <label for="major">Major & University:</label>
+                    <input type="text" id="major">
+                </div>
+    
+                <div class="info">
+                    <label>Programming Languages:</label>
+    
+                    <input type="checkbox" id="html" class="langs" value="html">
+                    <label for="html">HTML</label>
+    
+                    <input type="checkbox" id="css" class="langs" value="css">
+                    <label for="css">CSS</label>
+    
+                    <input type="checkbox" id="js" class="langs" value="js">
+                    <label for="js">JS</label>
+    
+                </div>
+            </form>
+    
+            <hr style="height: 5px;">
+    
+            <form action="" class="siblings">
+                <div class="info">
+                    <label for="sib-num">siblings number:</label>
+                    <input type="text" id="sib-num">
+                </div>
+    
+                <div class="info">
+                    <label for="sib-desc">description of siblings:</label>
+                    <input type="text" id="sib-desc">
+                </div>
+            </form>
+            
+        <button class="submit-form" style="margin-top: 10px;">Submit</button>
+    
+        <hr>
+
+        <div class="cards-container">
+            
+        </div>
     </div>
 
 
+    <script src="tasks.js"></script>
 </body>
+
 </html>

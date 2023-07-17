@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+hr {
+    margin-top: 35px;
+    height: 10px;
+    background-color: #333;
+}
+
+.task2 form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task2 label {
+    font-weight: bold;
+}
+
+.task2 .siblings .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.task2 .siblings .info input {
+    width: fit-content;
+}
+
+.task2 .cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+
+.task2 .cards-container .card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.task2 .cards-container .card ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.task2 .cards-container .card img {
+    width: 250px;
+}
+
