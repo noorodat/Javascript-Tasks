@@ -125,7 +125,7 @@ accept 2 parameters and calculate the multiply of these 2 numbers
 
 Ex: multiply(3,4)
 => 12
-Ex: multiply(5,4)
+Ex: multiply(5)
 => 20
 */
 
@@ -262,6 +262,8 @@ function shorterString(...str) {
     }
     console.log(ans);
 }
+
+
 
 
 /*
