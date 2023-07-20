@@ -30,3 +30,35 @@ hr {
 .task2 .siblings .info input {
     width: fit-content;
 }
+
+.task2 .cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+
+.task2 .cards-container .card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.task2 .cards-container .card ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.task2 .cards-container .card img {
+    width: 250px;
+}
+
+
+/* Task3 */
+
+.task3 form span{
+    color: red;
+    display: none;
+}
