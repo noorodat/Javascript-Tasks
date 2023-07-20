@@ -37,10 +37,17 @@ function loadData() {
         
     }
     loadBtn.removeEventListener('click', loadData);
+<<<<<<< HEAD
     
+=======
+>>>>>>> 900d3113dccaac392d59137fcbb42d835e0b45e8
 }
 
 loadBtn.addEventListener('click', loadData);
 
 
+<<<<<<< HEAD
 req.send();
+=======
+req.send();
+>>>>>>> 900d3113dccaac392d59137fcbb42d835e0b45e8
