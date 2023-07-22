@@ -4,16 +4,25 @@
 
 
 function equivalentProp(obj1, obj2) {
-
+    if(Object.keys(o1).length === Object.keys(obj2).length) {
+        for(let key in obj1) {
+            if(obj1[key] !== obj2[key]) {
+                console.log("NO");
+                return false;
+            }
+        }
+        console.log("YES");
+    }
+    else {
+        console.log("NO");
+    }
 }
 
 
 let o1 = {
     name: "ello",
     age: 20,
-    number: 123
 }
-
 
 
 let o2 = {
@@ -22,11 +31,45 @@ let o2 = {
 }
 
 equivalentProp(o1, o2);
+console.log("-----------------");
 
 // Excersice 2: Write a JavaScript program to copy a string to the clipboard. 
 
+let text = document.querySelector(".copy-me");
+let copyBtn = document.querySelector(".copyBtn");
+
+copyBtn.onclick =  () => {
+    try {
+        navigator.clipboard.writeText(text.textContent);
+    }
+    catch (error) {
+        text.textContent = "Failed to copy!";
+    }
+}
+
+
+
 
 // Excersice 3: Write a JavaScript program to converts a comma-separated values (CSV) string to a 2D array. 
+
+function convertTo2DArray(str) {
+    let rows = str.trim().split('\n');
+    
+    let ans = [];
+
+    for(let i = 0; i < rows.length; i++) {
+        ans.push(rows[i].split(','));
+    }
+    return ans;
+}
+
+const csvString = `John,Doe,30
+Jane,Smith,25
+Bob,Johnson,40`;
+
+console.log(convertTo2DArray(csvString));
+console.log("-----------------");
+
 
 // Excersice 4: Write a JavaScript program to convert a comma-separated values (CSV) string to a 2D array of objects. The first row of the string is used as the title row. 
 
@@ -34,7 +77,51 @@ equivalentProp(o1, o2);
 
 // Excersice 6: Write a JavaScript program to target a given value in a nested JSON object, based on the given key. 
 
+// This code only works with one nested object. => for multi u should use recursion
+function targetKey(obj, target) {
+    for(let key in obj) {
+        if (typeof obj[key] === "object") {
+            for(let nesKey in obj[key]) {
+                if(obj[key][nesKey] === target) {
+                    return `Found ${obj[key][nesKey]}`;
+                }
+            }
+        }
+        else {
+            if(obj[key] === target) {
+                return `Found ${obj[key]}`;
+            }
+        }
+    }
+    return `Not Found`;
+}
+
+const nestedObject = {
+    id: 1,
+    name: 'John',
+    age: 30,
+    address: {
+        city: 'New York',
+        country: 'USA',
+    },
+    contact: {
+        email: 'john@example.com',
+        phone: '+1 123-456-7890',
+    },
+};
+
+console.log(targetKey(nestedObject, 'New York'));
+
+console.log("-----------------");
+
 // Excersice 7: Write a JavaScript program to converts a specified number to an array of digits. 
+
+function numsToArray(num) {
+    return Array.from(num.toString());
+}
+console.log(numsToArray(234234234234));
+console.log("-----------------");
+
 
 // Excersice 8: Write a JavaScript program to filter out the specified values from an specified array. Return the original array without the filtered values. 
 
@@ -42,7 +129,7 @@ equivalentProp(o1, o2);
 
 // Excersice 10: Write a JavaScript program to extract out the values at the specified indexes from an specified array. 
 
-// Excersice 11: Write a JavaScript program to generate a random hexadecimal color code. 
+// Excersice 11: Write a JavaScript program to generate a random hexadecimal color code.
 
 // Excersice 12: Write a JavaScript program to removes non-printable ASCII characters from a given string. 
 

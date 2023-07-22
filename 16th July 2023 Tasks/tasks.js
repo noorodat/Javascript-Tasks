@@ -165,7 +165,12 @@ passwords[1].onkeyup = () => {
     else {
         errorMessage[6].style.display = "none";
     }
+<<<<<<< HEAD
 
 }
 
 
+=======
+}
+
+>>>>>>> ca551cee80dba95afbdbe43144e57a6b7c8b29c8
