@@ -99,7 +99,6 @@ function olderPerson(obj) {
         }
     }
     return fullName;
-
 }
 console.log(olderPerson(persons));
 console.log("----------------------");
@@ -464,9 +463,9 @@ function longestKey(obj) {
     let longest = Object.keys(obj)[0];
     let ans = obj[Object.keys(obj)[0]];
     for(let key in obj) {
-       if(key.length > longest.length) {
+        if(key.length > longest.length) {
         ans = obj[key];
-       }
+        }
     }
     return ans;
 }
