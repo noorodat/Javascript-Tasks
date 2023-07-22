@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 26%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+    color: white;
+}
+
+.to-do {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.to-do input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+.to-do input:focus {
+    outline: none;
+}
+
+.to-do h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: white;
+}
+
+.to-do input#task-desc {
+    width: 400px;
+}
+
+.to-do .search {
+    align-self: flex-start;
+}
+
+.to-do button {
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.to-do button:hover {
+    background-color: #007bffee;
+}
+
+.to-do button:active {
+    transform: translateY(-1px);
+}
+
+.to-do .tasks-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.to-do .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.to-do .task::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-color: #007bff;
+    bottom: -10px;
+    height: 2px;
+}
+
+
