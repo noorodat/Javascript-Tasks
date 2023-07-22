@@ -7,8 +7,8 @@ bodyColor.onchange = () => {
     sessionStorage.setItem("bodyColor", `${bodyColor.value}`);
 }
 
-document.body.style.background = `${sessionStorage.getItem("bodyColor")}`;
-bodyColor.value = `${sessionStorage.getItem("bodyColor")}`;
+document.body.style.background = sessionStorage.getItem("bodyColor");
+bodyColor.value = sessionStorage.getItem("bodyColor");
 
 /* ####################################################################################### */
 
@@ -165,8 +165,7 @@ passwords[1].onkeyup = () => {
     else {
         errorMessage[6].style.display = "none";
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 900d3113dccaac392d59137fcbb42d835e0b45e8
+
+
