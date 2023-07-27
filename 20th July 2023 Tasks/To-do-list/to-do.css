@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 26%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(90deg, rgb(10 8 44) 26%, rgb(47 47 70) 100%, rgba(0,212,255,1) 100%);
     color: white;
 }
 
@@ -23,8 +23,8 @@ body {
 }
 
 .to-do input {
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 100px;
     border: none;
 }
 
@@ -44,6 +44,19 @@ body {
 
 .to-do .search {
     align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.to-do #errMsg {
+    color: red;
+}
+
+.to-do .btns-cont {
+    display: flex;
+    gap: 8px;
 }
 
 .to-do button {

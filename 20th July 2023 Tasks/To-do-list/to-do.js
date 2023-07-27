@@ -21,7 +21,8 @@ function fetchTasks() {
     });
 }
 
-fetchTasks();
+  fetchTasks();
+
 
 function createTaskElement(taskName) {
   const task = document.createElement("div");
@@ -39,23 +40,32 @@ function createTaskElement(taskName) {
   updateBtn.textContent = "Update";
   updateBtn.setAttribute("id", "update");
 
+  let btnsContainer = document.createElement("div");
+  btnsContainer.classList.add("btns-cont");
+
   task.appendChild(taskNameElement);
-  task.appendChild(deleteBtn);
-  task.appendChild(updateBtn);
+  btnsContainer.appendChild(deleteBtn);
+  btnsContainer.appendChild(updateBtn);
+  task.appendChild(btnsContainer);
 
   cardsContainer.appendChild(task);
 }
 
 function addTask() {
+  let allTasks = JSON.parse(localStorage.getItem("TaskName"));
   const taskText = document.getElementById("task-desc").value;
   if (taskText.trim() === "") {
+      document.getElementById("errMsg").textContent = "Can't add an empty task";
+    return;
+  }
+  else if(allTasks.includes(taskText)) {
+    document.getElementById("errMsg").textContent = "Task already exists";
     return;
   }
   
   createTaskElement(taskText);
   addedTasks.push(taskText);
   localStorage.setItem("TaskName", JSON.stringify(addedTasks));
-  location.reload();
 }
 
 const addTaskBtn = document.querySelector(".to-do #add-task");
@@ -64,9 +74,10 @@ addTaskBtn.addEventListener("click", addTask);
 if (localStorage.length !== 0) {
   addedTasks = JSON.parse(localStorage.getItem("TaskName"));
   addedTasks.forEach((taskName) => {
-    createTaskElement(taskName);
+      createTaskElement(taskName);
   });
 }
+
 
 /////////////////Delete a Task//////////////////
 
@@ -88,6 +99,8 @@ function deleteTask(taskElement) {
     }
 });
 
+
+
 /////////////////Search A Task//////////////////
 
 function searchTasks() {
@@ -108,7 +121,6 @@ function searchTasks() {
 
   const searchInput = document.getElementById("search");
 searchInput.addEventListener("input", searchTasks);
-
 
 /////////////////Update A Task//////////////////
 
@@ -140,3 +152,4 @@ cardsContainer.addEventListener("click", (event) => {
       updateTaskName(taskElement);
     }
 });
+
